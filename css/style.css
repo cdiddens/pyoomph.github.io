@@ -1,0 +1,268 @@
+body, html { padding:0; margin:0; }
+body{ background-color:#FFF; -webkit-text-size-adjust:100%; }
+h1 {font-size:26px;color:#202020;}
+img {border-style:none; max-width:100%;}
+
+/* never let media or preformatted text push the page wider than the viewport */
+pre {overflow-x:auto;}
+
+a {text-decoration:underline; color:#000000;}
+
+#page-top { 
+  color: #FFF; 
+  line-height: 1; 
+  margin-left: 0;
+  font-family:'lucida grande',verdana,helvetica,arial,sans-serif;font-size:16px; line-height:1.2;
+  background-image: url("../media/header.jpg");  
+  background-repeat: no-repeat;
+  background-position: center; 
+  background-color: #FFF;
+  height: 200px;    
+  padding: 0px;
+} 
+
+#menu {
+ background-color: #DDD;
+ border-radius: 12px;
+  border: 2px solid #000;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+
+#menu { background-color:#377e22; text-align:center; line-height:30px; line-height:30px; bottom:0px;margin-left:auto;margin-right:auto;width:100%;}
+#menu ul {list-style:none; padding:0; margin:0; font-size:20px; font-family:"HelveticaNeue-Light","Helvetica Neue Light","Helvetica Neue",helvetica,arial,sans-serif; letter-spacing:1px; color:#FFFFFF;}
+#menu li {margin-right:16px; margin-left:16px; display:inline; padding-bottom:3px}
+#menu a {color:#FFF; text-decoration:none; padding:4px;}
+
+#menu a:hover {color: #DDD}
+
+/* small icon in front of every menu entry */
+#menu .menu-icon {
+  width: 0.95em;
+  height: 0.95em;
+  vertical-align: -0.11em;
+  margin-right: 0.35em;
+  fill: currentColor;   /* the three internal entries follow their label */
+}
+/* white variants: the "light logo" Read the Docs publishes for dark backgrounds,
+   and one of the colours GitHub permits for the Invertocat */
+#menu .menu-icon-rtd { fill: #FAFAFA; }
+#menu .menu-icon-github { fill: #FFF; }
+
+/* keep the mark on the same line as its label when the menu wraps */
+#menu a { white-space: nowrap; }
+#menu li.selected a {color: #FFF}
+
+
+#content {position:static; padding:25px; font-family:'lucida grande',verdana,helvetica,arial,sans-serif;font-size:16px; line-height:1.6; margin-left: auto; margin-right:auto; background-color:#FFF;}
+#content {max-width: 950px;min-height:800px}
+#content {overflow-wrap: break-word;}
+#content {background-color:#FFF;}
+
+
+
+#page-bottom { 
+  background: #000; 
+  color: #FFFFFF; 
+  line-height: 1; 
+  font-family:'lucida grande',verdana,helvetica,arial,sans-serif;font-size:16px; line-height:1.2;
+  align-items: center;
+} 
+
+
+
+
+.flex-container {
+  display: flex;
+  flex-flow: row wrap;
+  text-align: center;
+  justify-content: center;
+}
+
+.flex-column {
+  /* 470px keeps the two-column layout on wide screens, but the column must never
+     be wider than its container, otherwise narrow viewports scroll horizontally */
+  min-width: min(470px, 100%);
+}
+
+.flex-column ul {
+list-style:none;
+  text-align: center;
+}
+
+/* Responsive layout - makes the two columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 600px) {
+  .flex-column {
+    width: 100%;
+  }
+}
+
+
+.code-box {
+  padding: 5px;
+  border-radius: 5px;
+  margin-bottom: 5px;
+}
+
+.code-box codebox {
+  display: block;
+  padding: 5px;
+  background-color: #f4f4f4;
+  border-radius: 20px;
+  margin-top: 5px;
+  text-indent: 20px;
+}
+
+
+#gpl {
+ font-size:14px;
+ background-color:#EEE;
+}
+
+@media only screen and (max-width: 357px) {
+  #columnleft, #columnright {
+    width: 100%;
+  }
+}
+
+#columnleft ul {list-style:none;}
+#columnright ul {list-style:none;}
+
+#page-bottom a {color: #FFFFFF;}
+
+#page-bottom th, td {
+  border: 0px;
+  margin: auto;
+  width: 100%;
+  text-align: center;
+}
+
+.footer {
+  width: 100%;
+  background: #000000;  
+  color: #ffffff;
+  margin:auto;
+  align-items: center;
+}
+.footer .footer-row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 1.5rem;
+  margin:auto;
+  align-items: center;  
+}
+
+.footer .footer-row a {
+color: #FFFFFF;
+text-decoration:none;
+}
+
+
+.horizontal-media-scroller {
+  --size: 300px;
+
+  
+
+  align-items: center; 
+  display: grid;
+  grid-auto-flow: column;
+  gap: calc(var(--gap) / 2);
+  margin: 0;
+
+  overflow-x: auto;
+  overscroll-behavior-inline: contain;
+}
+
+/* These used to be nested inside the rule above with `&`. Written out flat, so
+   that they also apply in browsers without CSS nesting - there the thumbnails
+   would otherwise fall back to their intrinsic size and show list bullets. */
+
+.horizontal-media-scroller > li {
+  display: inline-block; /* removes the list-item bullet */
+}
+
+.horizontal-media-scroller picture {
+  inline-size: var(--size);
+  block-size: var(--size);
+}
+
+.horizontal-media-scroller img {
+  /* smash into whatever box it's in */
+  inline-size: 100%;
+  block-size: 100%;
+  width: 200px;
+  height: 150px;
+  max-width: none; /* thumbnails keep their fixed size, the strip scrolls instead */
+
+  /* don't squish but do cover the space */
+  object-fit: contain;
+
+  /* soften the edges */
+  border-radius: 1ex;
+  overflow: hidden;
+}
+
+.horizontal-media-scroller figcaption {
+  text-align: center;
+}
+
+
+/* ---------------------------------------------------------------------------
+   Small screens (tablets in portrait and phones).
+   Same content and same design, only tightened up so that nothing overflows
+   the viewport and the touch targets stay usable.
+   --------------------------------------------------------------------------- */
+
+@media screen and (max-width: 800px) {
+  #content { padding: 18px; }
+
+  /* below this width the entries no longer fit on one line, so lay them out as
+     a wrapping flex row - inline items would wrap into ragged, uneven rows */
+  #menu ul { font-size: 18px; display: flex; flex-wrap: wrap; justify-content: center; }
+  #menu li { margin-left: 10px; margin-right: 10px; display: inline-block; }
+}
+
+@media screen and (max-width: 600px) {
+  #content { padding: 14px; }
+
+  h1 { font-size: 22px; }
+
+  /* wrap the menu onto as many rows as needed, with room to tap each entry */
+  #menu { line-height: 1.4; padding: 6px 4px; }
+  #menu ul { font-size: 17px; row-gap: 4px; }
+  #menu li { margin-left: 8px; margin-right: 8px; padding-bottom: 0; }
+  #menu a { display: inline-block; padding: 6px 4px; }
+
+  /* the feature lists lose the browser's default list indentation */
+  .flex-column ul { padding-left: 0; }
+
+  /* the GPL notice is fixed-width plain text: wrap it instead of scrolling it */
+  #gpl { white-space: pre-wrap; overflow-wrap: break-word; font-size: 13px; }
+
+  /* command lines can be longer than a phone is wide */
+  .code-box codebox { text-indent: 0; overflow-wrap: anywhere; }
+
+  /* publication list: reclaim the wide default indentation of the numbers */
+  #content ol { padding-left: 1.6em; }
+
+  /* one thumbnail at a time, captions wrapping under it */
+  .horizontal-media-scroller { gap: 12px; }
+  .horizontal-media-scroller > li { max-width: 200px; }
+}
+
+@media screen and (max-width: 480px) {
+  /* show the whole logo instead of cropping its sides */
+  #page-top {
+    height: 150px;
+    background-size: contain;
+  }
+}
+
+@media screen and (max-width: 380px) {
+  #content { padding: 10px; }
+  #menu ul { font-size: 16px; }
+  #menu li { margin-left: 6px; margin-right: 6px; }
+  #page-top { height: 120px; }
+}
